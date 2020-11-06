@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_height="fill_parent"
+        android:layout_width="fill_parent">
+
+        <!-- map view -->
+        <tech.jalee.gridview.view.MapViewLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            android:id="@+id/maplayout">
+        </tech.jalee.gridview.view.MapViewLayout>
+
+
+    </LinearLayout>>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/controlScreen"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.2"
+                    android:gravity="center">
+
+                    <ImageButton
+                        android:id="@+id/btnRotateLeft"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="bottom"
+                        android:background="@android:color/transparent"
+                        android:paddingRight="20dp"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/rl" />
+
+                    <ImageButton
+                        android:id="@+id/btnUp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="bottom"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/upbtn" />
+
+                    <ImageButton
+                        android:id="@+id/btnRotateRight"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="bottom"
+                        android:background="@android:color/transparent"
+                        android:paddingLeft="20dp"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/rr" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.2">
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1">
+
+                        <ImageButton
+                            android:id="@+id/btnLeft"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="bottom"
+                            android:background="@android:color/transparent"
+                            android:scaleType="fitCenter"
+                            app:srcCompat="@drawable/leftbtn" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1"
+                        android:gravity="right">
+
+                        <ImageButton
+                            android:id="@+id/btnRight"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="bottom"
+                            android:background="@android:color/transparent"
+                            android:scaleType="fitCenter"
+                            app:srcCompat="@drawable/rightbtn" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.2"
+                    android:gravity="center">
+
+                    <ImageButton
+                        android:id="@+id/btnDown"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="bottom"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/downbtn" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.2"
+                    android:gravity="center">
+
+                    <TextView
+                        android:id="@+id/labelToggleGyro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="15dp"
+                        android:text="Gyro" />
+
+                    <ToggleButton
+                        android:id="@+id/btnGyro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Gyro" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.2"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/labelRobotStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Robot status:"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/tvRobotStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="IDLE"
+                        android:textSize="20sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.2"
+                    android:orientation="vertical">
+
+
+                    <!--
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/tvSetCoordinates"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="Set Coordinates: "
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:id="@+id/tvX"
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvSetCoordinates"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="X: "
+                        android:textSize="24sp" />
+
+                    <EditText
+                        android:id="@+id/tbX"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tvSetCoordinates"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:ems="3"
+                        android:layout_toRightOf="@id/tvX"
+                        android:inputType="number"
+                        android:text="0" />
+
+                    <TextView
+                        android:id="@+id/tvY"
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:text="Y: "
+                        android:layout_below="@id/tvX"
+                        android:textSize="24sp" />
+
+                    <EditText
+                        android:id="@+id/tbY"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:ems="3"
+                        android:layout_toRightOf="@id/tvY"
+                        android:layout_below="@id/tbX"
+                        android:inputType="number"
+                        android:text="0" />
+
+                    <Button
+                        android:id="@+id/btnSetCoordinates"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_below="@id/tvY"
+                        android:text="SET"/>
+
+                </RelativeLayout>
+                -->
+
+                    <!--
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageButton
+                    android:id="@+id/btnF1"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="bottom"
+                    android:background="@android:color/transparent"
+                    app:srcCompat="@drawable/bluetooth" />
+            </LinearLayout>
+            -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:id="@+id/tvSetCoordinates"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Set Coordinates: "
+                            android:textSize="24sp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:focusableInTouchMode="true">
+
+                            <TextView
+                                android:id="@+id/tvX"
+                                android:layout_width="30dp"
+                                android:layout_height="wrap_content"
+                                android:text="X: "
+                                android:textSize="24sp" />
+
+                            <EditText
+                                android:id="@+id/tbX"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ems="3"
+                                android:inputType="number"
+                                android:text="0" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:focusableInTouchMode="true">
+
+                            <TextView
+                                android:id="@+id/tvY"
+                                android:layout_width="30dp"
+                                android:layout_height="wrap_content"
+                                android:text="Y: "
+                                android:textSize="24sp" />
+
+                            <EditText
+                                android:id="@+id/tbY"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:ems="3"
+                                android:inputType="number"
+                                android:text="0" />
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/btnSetCoordinates"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:text="SET" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.3"
+                        android:orientation="horizontal">
+
+                        <ImageButton
+                            android:id="@+id/btnF1"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="bottom"
+                            android:background="@android:color/transparent"
+                            android:scaleType="fitCenter"
+                            app:srcCompat="@drawable/f1" />
+
+                        <ImageButton
+                            android:id="@+id/btnF2"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="bottom"
+                            android:background="@android:color/transparent"
+                            android:scaleType="fitCenter"
+                            app:srcCompat="@drawable/f2" />
+
+                        <ImageButton
+                            android:id="@+id/btnConfig"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_gravity="bottom"
+                            android:background="@android:color/transparent"
+                            android:scaleType="fitCenter"
+                            app:srcCompat="@drawable/config" />
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="0.8"
+                    android:gravity="right">
+
+                    <ImageButton
+                        android:id="@+id/btnBluetooth"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="bottom"
+                        android:background="@android:color/transparent"
+                        android:scaleType="fitCenter"
+                        app:srcCompat="@drawable/bluetooth2" />
+
+                    <ImageButton
+                        android:id="@+id/btnChat"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="bottom"
+                        android:background="@android:color/transparent"
+                        android:scaleType="centerInside"
+                        app:srcCompat="@drawable/chat2" />
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/screenshotScreen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/exploreFastest"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginRight="5dp">
+
+                        <LinearLayout
+                            android:id="@+id/exploration"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/explorationHeader"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:gravity="center_horizontal"
+                                android:text="Exploration" />
+
+                            <TextView
+                                android:id="@+id/explorationTiming"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:autoText="false"
+                                android:gravity="center_horizontal"
+                                android:text="00:00:00.000"
+                                android:textSize="25sp"
+                                android:textStyle="bold" />
+
+                            <Button
+                                android:id="@+id/explorationBtn"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Start" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/fastestPath"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.5"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/fastestPathHeader"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:text="Fastest Path" />
+
+                            <TextView
+                                android:id="@+id/fastestTiming"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:autoText="false"
+                                android:gravity="center_horizontal"
+                                android:text="00:00:00.000"
+                                android:textSize="25sp"
+                                android:textStyle="bold" />
+
+                            <Button
+                                android:id="@+id/fastestBtn"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Start" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="80dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/tvRobotStatusLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:background="@drawable/status_bg"
+                            android:layout_weight="1"
+                            android:layout_margin="5dp">
+
+                            <TextView
+                                android:textColor="@color/white"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/statusLbl"
+                                android:gravity="center_horizontal"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/white_bg">
+
+                                <TextView
+                                    android:id="@+id/robotStatusTextView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:text="@string/status"
+                                    android:textColor="@color/black"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/tvCoordinateLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:background="@drawable/coordinate_bg"
+                            android:layout_weight="1"
+                            android:layout_margin="5dp">
+
+                            <TextView
+                                android:textColor="@color/white"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/coordinateLbl"
+                                android:gravity="center_horizontal"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/white_bg">
+
+                                <TextView
+                                    android:id="@+id/robotCoordinateTextView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:text="@string/start_pos"
+                                    android:textSize="24sp"
+                                    android:textColor="@color/black"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/tvDirectionLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:background="@drawable/direction_bg"
+                            android:layout_weight="1"
+                            android:layout_margin="5dp">
+
+                            <TextView
+                                android:textColor="@color/white"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/directionLbl"
+                                android:gravity="center_horizontal"/>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/white_bg">
+
+                                <TextView
+                                    android:id="@+id/robotDirectionTextView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:textColor="@color/black"
+                                    android:text="@string/start_dir"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginEnd="5dp"
+                        android:layout_marginRight="5dp">
+
+                        <Button
+                            android:id="@+id/calibrateBtn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/calibrate"
+                            android:layout_weight="1"/>
+
+                        <Button
+                            android:id="@+id/sendWaypoint"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/waypoint"
+                            android:layout_weight="1"/>
+
+                        <Button
+                            android:id="@+id/requestSensorBtn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/sensor"
+                            android:layout_weight="1"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/resultScreen"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/p1Header"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="P1 String"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/p1Value"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="-nil-" />
+
+                        <TextView
+                            android:id="@+id/p2Header"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="P2 String"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/p2Value"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="-nil-" />
+
+                        <TextView
+                            android:id="@+id/imageHeader"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Images"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/imageValues"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="-nil-" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

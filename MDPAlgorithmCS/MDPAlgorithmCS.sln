@@ -1,0 +1,17 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MDPAlgorithmCS", "MDPAlgorithmCS\MDPAlgorithmCS.csproj", "{B4DC912E-902B-4FB4-92AF-B6620A95BADE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4DC912E-902B-4FB4-92AF-B6620A95BADE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4DC912E-902B-4FB4-92AF-B6620A95BADE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4DC912E-902B-4FB4-92AF-B6620A95BADE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4DC912E-902B-4FB4-92AF-B6620A95BADE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

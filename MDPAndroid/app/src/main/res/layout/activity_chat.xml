@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Chat">
+
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="20dp"
+        android:onClick="onBtnSendClick"
+        android:text="Send" />
+
+    <TextView
+        android:id="@+id/tvReceive"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/btnSend"
+        android:text="Received text:"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/tbReceive"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvReceive"
+        android:ems="10"
+        android:lines="10"
+        android:enabled="false"
+        android:inputType="textMultiLine"/>
+
+    <TextView
+        android:id="@+id/tvSend"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/tbReceive"
+        android:text="Send text:"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/tbSend"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvSend"
+        android:ems="10"
+        android:lines="10"
+        android:inputType="textMultiLine" />
+
+</RelativeLayout>
+</ScrollView>
