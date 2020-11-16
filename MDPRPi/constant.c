@@ -1,8 +1,18 @@
+#ifndef CONSTANT_H
+#define CONSTANT_H
+
 #define PORT 3000
 #define BUFFER_SIZE 1024
+#define ANDROID_WRITE 0
+#define ANDROID_READ 1
+#define ALGO_WRITE 2
+#define ALGO_READ 3
+#define ARD_WRITE 4
+#define ARD_READ 5
 
-#define SOCKET_INIT_ERROR 1
-#define SOCKET_SETOPT_ERROR 2
-#define SOCKET_BIND_ERROR 3
-#define SOCKET_LISTEN_ERROR 4
-#define SOCKET_ACCEPT_ERROR 5
+const short ANDROID = 1 << 0;
+const short ARDUINO = 1 << 1;
+const short ALGORITHM = 1 << 2;
+const short RPI = 1 << 3;
+
+#endif

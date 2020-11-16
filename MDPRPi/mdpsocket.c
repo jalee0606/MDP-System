@@ -1,4 +1,3 @@
-#include "mdpqueue.c"
 #include <unistd.h> 
 #include <stdio.h> 
 #include <stdlib.h>
@@ -6,7 +5,9 @@
 #include <stdlib.h> 
 #include <netinet/in.h>
 #include "constant.c"
-
+#include <termios.h>
+#include <fcntl.h>
+#include <errno.h>
 /**
  * Socket Implementation in C (Bluetooth/TCP)
  * 
@@ -15,25 +16,24 @@
 
 #define BLUETOOTH 1
 #define TCP 0
+#define SERIAL 2
 
-struct tcp_socket {
+struct mdp_socket {
     int type;
     int server_sock;
     int client_sock;
     char buffer[BUFFER_SIZE];
-    struct mdp_queue* queue;
 };
 
-struct tcp_socket* init_socket(int type)
+struct mdp_socket* init_socket(int type)
 {
     printf("init_socket()\n");
-    struct tcp_socket *custom_socket = malloc(sizeof(struct tcp_socket));
-    custom_socket->queue = init_queue();
+    struct mdp_socket *custom_socket = malloc(sizeof(struct mdp_socket));
     custom_socket->type = type;
     return custom_socket;
 }
 
-int setup_socket(struct tcp_socket* ssocket)
+int setup_socket(struct mdp_socket* ssocket)
 {
     printf("setup_socket()\n");
     if(ssocket->type == BLUETOOTH)
@@ -67,6 +67,15 @@ int setup_socket(struct tcp_socket* ssocket)
             goto error;
         }
     }
+    else if(ssocket->type == SERIAL)
+    {
+        ssocket->client_sock = open("/dev/ttyUSB0", O_RDWR);
+        if(ssocket->client_sock)
+        {
+            printf("Error %i from open: %s\n", errno, strerror(errno));
+            goto error;
+        }
+    }
     else
     {
         goto error;
@@ -78,7 +87,7 @@ int setup_socket(struct tcp_socket* ssocket)
     return 0;
 }
 
-int listen_socket(struct tcp_socket* ssocket)
+int listen_socket(struct mdp_socket* ssocket)
 {
     if(ssocket->type == BLUETOOTH)
     {
@@ -101,6 +110,11 @@ int listen_socket(struct tcp_socket* ssocket)
         printf("connection accepted\n");
         return 0;
     }
+    else if(ssocket->type == SERIAL)
+    {
+        // Serial don't need to listen
+        return 0;
+    }
     else
     {
 
@@ -108,13 +122,14 @@ int listen_socket(struct tcp_socket* ssocket)
     return -3;
 }
 
-char* read_socket(struct tcp_socket* ssocket)
+char* read_socket(struct mdp_socket* ssocket)
 {
     int valread = read(ssocket->client_sock, ssocket->buffer, BUFFER_SIZE);
     return ssocket->buffer;
+    
 }
 
-void send_socket(struct tcp_socket* ssocket, char* data)
+void send_socket(struct mdp_socket* ssocket, char* data)
 {
     send(ssocket->client_sock, data, strlen(data), 0);
 }

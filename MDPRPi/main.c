@@ -1,9 +1,8 @@
-#include "mdpsocket.c"
-#include "logger.c"
-#include <stdio.h>
+#include "hub.c"
 
 int main()
 {
+    /*
     struct tcp_socket* socket;
     socket = init_socket(TCP);
     if(setup_socket(socket) == 0)
@@ -32,6 +31,9 @@ int main()
     }
     exit:
     return 0;
+    */
+   start_hub_process();
+   return 0;
 }
 /**
 int load_dbl()
