@@ -32,7 +32,8 @@ int main()
     exit:
     return 0;
     */
-   start_hub_process();
+   init();
+   start_hub();
    return 0;
 }
 /**
