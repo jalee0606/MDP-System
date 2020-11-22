@@ -8,6 +8,7 @@
   <ItemGroup>
     <Folder Include="Object\" />
     <Folder Include="Interface\" />
+    <Folder Include="Network\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Object\IExplorer.cs" />
