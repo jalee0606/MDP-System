@@ -35,6 +35,7 @@ struct mdp_socket* init_socket(int type)
 };
 
 int read_bytes(struct mdp_socket*, unsigned int, void*);
+void send_socket_wsize(struct mdp_socket*, char*, size_t);
 
 int setup_socket(struct mdp_socket* ssocket)
 {
@@ -197,6 +198,12 @@ void send_socket(struct mdp_socket* ssocket, char* data)
 {
     printf("sending %s\n", data);
     write(ssocket->client_sock, data, strlen(data));
+};
+
+void send_socket_wsize(struct mdp_socket* ssocket, char* data, size_t n)
+{
+    printf("sending %s\n", data);
+    write(ssocket->client_sock, data, n);
 };
 
 int read_bytes(struct mdp_socket* ssocket, unsigned int x, void* buffer)
