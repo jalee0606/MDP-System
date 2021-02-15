@@ -102,6 +102,22 @@ int setup_socket(struct mdp_socket* ssocket)
             printf("Error %i from open: %s\n", errno, strerror(errno));
             goto error;
         }
+        // setup serial config
+        struct termios options;
+        tcgetattr(ssocket->client_sock, &options);
+        cfsetispeed(&options, B19200);
+        cfsetospeed(&options, B19200);
+        /*
+         * Enable the receiver and set local mode...
+         */
+
+        options.c_cflag |= (CLOCAL | CREAD);
+
+        /*
+         * Set the new options for the port...
+         */
+        tcsetattr(ssocket->client_sock, TCSANOW, &options);
+
     }
     else
     {
@@ -160,6 +176,21 @@ int listen_socket(struct mdp_socket* ssocket)
 
     }
     return -3;
+};
+
+struct packet_t* read_serial(struct mdp_socket* ssocket)
+{
+    char type = ALGORITHM;
+    unsigned int length = 0;
+    struct packet_t* packet = malloc(sizeof(struct packet_t));
+    packet->type = type;
+    char buffer[256];
+    int len = read(ssocket->client_sock, buffer, sizeof(buffer));
+    packet->command = malloc(len+1);
+    memcpy(packet->command, buffer, len);
+    *(packet->command+length) = '\0';
+    free(buffer);
+    return packet;
 };
 
 struct packet_t* read_socket(struct mdp_socket* ssocket)

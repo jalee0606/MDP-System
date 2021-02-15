@@ -130,9 +130,8 @@ void* run_ardread(void *vargp)
     printf("running ardread()\n");
     while(1)
     {
-        //char* msg = read_socket(arduino_client);
-        printf("read once\n");
-        usleep(1);
+        struct packet_t* packet = read_serial(arduino_client);
+        enqueue_t(algo_queue, packet);
     }
     return 0;
 }
